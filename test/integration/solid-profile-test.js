@@ -10,7 +10,7 @@ QUnit.module('SolidProfile tests')
 
 /**
  * Runs before the test suite, creates a `profile/test-profile-card` resource
- * (see `test/resources/profile-ldnode.js` for the Turtle source code).
+ * (see `test/resources/profile-extended.js` for the Turtle source code).
  */
 QUnit.begin(function (details) {
   // solid.web.put(profileUrl, rawProfileSource, 'text/turtle')

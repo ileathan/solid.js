@@ -1,5 +1,6 @@
 /**
- * Sample LDNode preferences file, for use with `solid-profile-test.js`
+ * Sample "private profile"/preferences file, for use with
+ * `solid-profile-test.js`
  */
 module.exports = `
 # Located in /settings/prefs.ttl

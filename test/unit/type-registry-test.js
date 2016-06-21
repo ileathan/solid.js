@@ -7,7 +7,7 @@ var SolidProfile = require('../../lib/solid/profile')
 var vocab = require('../../lib/vocab')
 // var rdf = require('../../lib/util/rdf-parser').rdflib
 
-var rawProfileSource = require('../resources/profile-ldnode')
+var rawProfileSource = require('../resources/profile-extended')
 var sampleProfileUrl = 'https://localhost:8443/profile/card'
 var parsedProfileGraph = parseGraph(sampleProfileUrl,
   rawProfileSource, 'text/turtle')
