@@ -10,16 +10,16 @@
     "dist"
   ],
   "scripts": {
-    "build-browserified": "browserify -r ./index.js:solid --exclude 'xhr2' --exclude 'rdflib' --standalone 'SolidClient' > dist/solid.js",
+    "build-browserified": "browserify -r ./index.js:solid --exclude 'xhr2' --exclude 'rdflib' > dist/solid.js",
     "build-minified": "browserify -r ./index.js:solid --exclude 'xhr2' --exclude 'rdflib' -d -p [minifyify --no-map] --standalone 'SolidClient' > dist/solid.min.js",
-    "build": "npm run clean && mkdir -p dist/resources && npm run standard && npm run build-browserified && npm run build-minified",
-    "build-qunit-resources": "browserify -r ./test/resources/profile-ldnode.js:test-ldnode-profile --exclude 'xhr2' --exclude 'rdflib' > dist/resources/test-ldnode-profile.js",
+    "build": "npm run clean && mkdir dist && npm run standard && npm run build-browserified && npm run build-minified",
+    "build-qunit-resources": "npm run build && mkdir -p dist/resources && browserify -r ./test/resources/profile-minimal.js:test-minimal-profile > dist/resources/test-minimal-profile.js && browserify -r ./test/resources/profile-private.js:test-minimal-prefs > dist/resources/test-minimal-prefs.js",
     "prepublish": "npm run build",
     "clean": "rm -rf dist/",
     "standard": "standard lib/*",
     "tape": "tape test/unit/*.js",
     "test": "npm run standard && npm run tape",
-    "qunit": "npm run standard && npm run build-browserified && open test/integration/index.html"
+    "qunit": "npm run build-qunit-resources && open test/integration/index.html"
   },
   "repository": {
     "type": "git",
