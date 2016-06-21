@@ -12,6 +12,24 @@ var sampleProfileUrl = 'https://localhost:8443/profile/card'
 var parsedProfileGraph = parseGraph(sampleProfileUrl,
   rawProfileSource, 'text/turtle')
 
+test('blankPrivateTypeIndex() test', function (t) {
+  let blankIndex = typeRegistry.blankPrivateTypeIndex()
+  t.equal(blankIndex.slug, 'privateTypeIndex.ttl')
+  t.notOk(blankIndex.uri)
+  t.equal(typeof blankIndex.data, 'string')
+  t.ok(blankIndex.graph)
+  t.end()
+})
+
+test('blankPublicTypeIndex() test', function (t) {
+  let blankIndex = typeRegistry.blankPublicTypeIndex()
+  t.equal(blankIndex.slug, 'publicTypeIndex.ttl')
+  t.notOk(blankIndex.uri)
+  t.equal(typeof blankIndex.data, 'string')
+  t.ok(blankIndex.graph)
+  t.end()
+})
+
 test('Solid.typeRegistry isListedTypeIndex test', function (t) {
   var url = 'https://localhost:8443/settings/publicTypeIndex.ttl'
   var rawIndexSource = require('../resources/type-index-listed')
